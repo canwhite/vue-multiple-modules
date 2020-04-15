@@ -10,6 +10,7 @@ npm install
 
 # serve with hot reload at localhost:8080
 npm run dev
+# 项目运行跑起来后访问 http://localhost:8086/a a为模块名，根据模块名来访问各个模块，模块之间的嵌套用绝对url地址
 
 # build for production with minification
 npm run build // 打包全部模块到一个资源包下面，每个模块的入口是module.html文件，静态资源都在static目录中，这种方式可以复用重复的资源
