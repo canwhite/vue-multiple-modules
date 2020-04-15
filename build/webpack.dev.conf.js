@@ -54,30 +54,30 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     watchOptions: {
       poll: config.dev.poll,
     },
-    before(app) {
-      // 写个小路由，打开浏览器的时候可以选一个开发路径
-      let html = `<html><head><title>调试页面</title>`
-      html += `<style>body{margin: 0}.module-menu{float: left;width: 200px;height: 100%;padding: 0 8px;border-right: 1px solid #00ffff;box-sizing: border-box}.module-container{float: left;width: calc(100% - 200px);height: 100%}.module-container iframe{width: 100%;height: 100%}</style>`
-      html += `</head><body><div class="module-menu">`
-      for(let module of moduleList){
-        html += `<a href="/${module}/index.html" target="container">${module.toString()}</a><br>`
-      }
-      html += `<p>将这一栏里面的链接拷贝出来直接访问，也可调式，而且可能会比当前方式更方便。</p>`
-      html += `</div>`
-      html += `<div class="module-container"><iframe src="/${moduleList[0]}/index.html" name="container" frameborder="0"></iframe></div>`
-      html += `</body></html>`
-      // let sentHref = ''
-      // for(var module in moduleList){
-      //   sentHref += '<a href="/'+ moduleList[module] +'/index.html">点我调试模块：'+ moduleList[module].toString() +'</a> <br>'
-      // }
-      app.get('/moduleList', (req, res, next) => {
-        res.send(html)
-      })
-      // 访问根路径时重定向到moduleList
-      app.get('/', (req, res, next) => {
-        res.redirect('/moduleList')
-      })
-    }
+    // before(app) {
+    //   // 写个小路由，打开浏览器的时候可以选一个开发路径
+    //   let html = `<html><head><title>调试页面</title>`
+    //   html += `<style>body{margin: 0}.module-menu{float: left;width: 200px;height: 100%;padding: 0 8px;border-right: 1px solid #00ffff;box-sizing: border-box}.module-container{float: left;width: calc(100% - 200px);height: 100%}.module-container iframe{width: 100%;height: 100%}</style>`
+    //   html += `</head><body><div class="module-menu">`
+    //   for(let module of moduleList){
+    //     html += `<a href="/${module}/index.html" target="container">${module.toString()}</a><br>`
+    //   }
+    //   html += `<p>将这一栏里面的链接拷贝出来直接访问，也可调式，而且可能会比当前方式更方便。</p>`
+    //   html += `</div>`
+    //   html += `<div class="module-container"><iframe src="/${moduleList[0]}/index.html" name="container" frameborder="0"></iframe></div>`
+    //   html += `</body></html>`
+    //   // let sentHref = ''
+    //   // for(var module in moduleList){
+    //   //   sentHref += '<a href="/'+ moduleList[module] +'/index.html">点我调试模块：'+ moduleList[module].toString() +'</a> <br>'
+    //   // }
+    //   app.get('/moduleList', (req, res, next) => {
+    //     res.send(html)
+    //   })
+    //   // 访问根路径时重定向到moduleList
+    //   app.get('/', (req, res, next) => {
+    //     res.redirect('/moduleList')
+    //   })
+    // }
   },
   plugins: [
     new webpack.DefinePlugin({
